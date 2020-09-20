@@ -6,56 +6,17 @@
 #endif //EXTRACLASE_1_GRAFO_H
 #define EXTRACLASE_1_GRAFO_H
 #define INF 999999
+#include "Vertice.h"
+#include "Arista.h"
 using namespace std;
 class Vertice;
 class Grafo;
 class Arista;
 
 
-class Arista {
-public:
-    int peso;
-    Arista *sig;
-    Vertice *refencia;
-    friend class Grafo;
-    Arista(int pes,Vertice *siguiente){
-        peso=pes;
-        sig=NULL;
-        refencia=siguiente;
-    }
-    void setNext(Arista *next) {
-        sig=next;
-    }
 
 
-};
 
-class Vertice {
-    string nom;
-    Vertice *sig;
-    Arista *arist;
-
-    friend class Grafo;
-
-    Vertice(string nomb) {
-        nom = nomb;
-        sig = NULL;
-        arist = NULL;
-    }
-    void agregarArist(Arista *arista){
-        if (arist==NULL){
-            arist=arista;
-        }
-        else{
-            Arista *aux=arist;
-            while (aux->sig!=NULL){
-                aux=aux->sig;
-            }
-            aux->sig=arista;
-        }
-
-    }
-};
 class Grafo {
         Vertice *inicial;
 
