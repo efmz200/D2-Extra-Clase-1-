@@ -9,13 +9,6 @@
 #include "Vertice.h"
 #include "Arista.h"
 using namespace std;
-class Vertice;
-class Grafo;
-class Arista;
-
-
-
-
 
 class Grafo {
         Vertice *inicial;
@@ -34,10 +27,6 @@ class Grafo {
                 }
                 return cont;
             }
-        }
-        void iniciar() {
-            inicial = NULL;
-
         }
         Vertice *getVertice(string nomb) {
 
@@ -65,14 +54,18 @@ class Grafo {
                 aux->sig=nuevo;
             }
         }
-        void agregarArista(int peso,string nomb1,string nomb2){
+        void agregarArista(int pes,string nomb1,string nomb2){
             Vertice *aux1=getVertice(nomb1);
             Vertice *aux2=getVertice(nomb2);
-            Arista *art= new Arista(peso,aux2);
+            Arista *art= new Arista();
+            art->refencia=aux2;
+            art->sig=NULL;
+            art->peso=pes;
             aux1->agregarArist(art);
         }
         string genmatriz(){
             int largo=lengrafo();
+            largo++;
             string arr[largo] [largo];
             string salida;
             Vertice *aux=inicial;
@@ -81,9 +74,31 @@ class Grafo {
                 arr[0][i]=aux->nom;
                 aux=aux->sig;
             }
+            for (int i=1;i<largo;i++){
+                for (int a=1;a<largo;a++){
+                    arr[a][i]=INF;
+                    if(a==i){
+                        arr[a][i]="0";
+                    }
+                }
+            }
             aux=inicial;
-            string a="hola";
-            a.length();
+            for (int i=1;i<largo;i++){
+                Arista *auxArt=aux->arist;
+                while(auxArt->sig!=NULL){
+                    for(int a=1;a<largo;a++){
+                        if(a==i){
+                            continue;
+                        }
+                        Vertice *auxVert=auxArt->refencia;
+                        if (arr[0][i]==auxVert->nom){
+                            arr[a][i]=to_string(auxArt->peso);
+                        }
+                        auxArt=auxArt->sig;
+                    }
+                    aux=aux->sig;
+                }
+            }
 
             return NULL;
         }

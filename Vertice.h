@@ -8,10 +8,11 @@
 #include <iostream>
 using namespace std;
 class Vertice {
+public:
     string nom;
     Vertice *sig;
     Arista *arist;
-
+    friend class Arista;
     friend class Grafo;
 
     Vertice(string nomb) {
@@ -29,6 +30,20 @@ class Vertice {
                 aux=aux->sig;
             }
             aux->sig=arista;
+        }
+
+    }
+    Arista  *getArt(string nomOut){
+        if (arist==NULL){
+            return 0;
+        }
+        Arista *aux=arist;
+        while (aux->sig!=NULL){
+            Vertice *aux2=aux->refencia;
+            if(aux2->nom==nomOut){
+                return aux;
+            }
+            aux=aux->sig;
         }
 
     }

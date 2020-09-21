@@ -4,26 +4,26 @@
 
 #ifndef EXTRACLASE_1_ARISTA_H
 #define EXTRACLASE_1_ARISTA_H
-#include "Vertice.h"
 #include <iostream>
+#include "Vertice.h"
 using namespace std;
 
 class Arista {
-public:
-    int peso;
-    Arista *sig;
-    Vertice *refencia;
-    friend class Grafo;
-    Arista(int pes,Vertice *siguiente){
-        peso=pes;
-        sig=NULL;
-        refencia=siguiente;
-    }
+
+
+    friend class Vertice;
+
+    public:
+        int peso;
+        Arista *sig;
+        Vertice *refencia;
+        friend class Grafo;
+
+
+
     void setNext(Arista *next) {
         sig=next;
     }
-
-
 };
 
 
