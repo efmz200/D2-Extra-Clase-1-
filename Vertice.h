@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 class Vertice {
-public:
+
     string nom;
     Vertice *sig;
     Arista *arist;
@@ -31,7 +31,6 @@ public:
             }
             aux->sig=arista;
         }
-
     }
     Arista  *getArt(string nomOut){
         if (arist==NULL){
@@ -39,7 +38,7 @@ public:
         }
         Arista *aux=arist;
         while (aux->sig!=NULL){
-            Vertice *aux2=aux->refencia;
+            Vertice *aux2=aux->referencia;
             if(aux2->nom==nomOut){
                 return aux;
             }

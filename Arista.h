@@ -4,20 +4,21 @@
 
 #ifndef EXTRACLASE_1_ARISTA_H
 #define EXTRACLASE_1_ARISTA_H
-#include <iostream>
 #include "Vertice.h"
+#include <iostream>
 using namespace std;
+
+class Vertice;
 
 class Arista {
 
-
+    friend class Grafo;
     friend class Vertice;
 
-    public:
-        int peso;
-        Arista *sig;
-        Vertice *refencia;
-        friend class Grafo;
+    int peso;
+    Arista *sig;
+    Vertice *referencia;
+
 
 
 
