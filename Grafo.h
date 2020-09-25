@@ -1,6 +1,23 @@
-//
-// Created by drump1 on 16/9/20.
-//
+/**
+ * @file Grafo.h
+ * @version 1.5
+ * @author Erick Madrigal
+ * @code
+ * int main(){
+ *  Grafo=new Grafo();
+ *   graf->agregaVert("a");
+ *      graf->agregaVert("b");
+ *      graf->agregaVert("c");
+ *      graf->agregaVert("d");
+ *      graf->agregarArista(5,"a","b");
+ *      graf->agregarArista(3,"a","c");
+ *      graf->agregarArista(3,"b","c");
+ *      graf->agregarArista(1,"c","d");
+ *      string msg=graf->genmatriz();
+ * }
+ * @endcode
+ *
+ */
 #include <iostream>
 #ifndef EXTRACLASE_1_GRAFO_H
 
@@ -14,6 +31,10 @@ class Grafo {
         Vertice *inicial;
 
     public:
+        /**
+         * @brief Cuenta los vertices del grafo para saber su largo
+         * @return retorna un int que es el largo del grafo
+         */
         int lengrafo(){
             if (inicial== nullptr){
                 return 0;
@@ -28,6 +49,11 @@ class Grafo {
                 return cont;
             }
         }
+        /**
+         * @brief funcion que busca entre los vertices hasta encontrar el que coincida con el nombre buscado
+         * @param nomb nombre del vertice que se esta buscando
+         * @return Vertice que tiene el nombre buscado
+         */
         Vertice *getVertice(string nomb) {
 
             Vertice *aux;
@@ -41,6 +67,10 @@ class Grafo {
 
             return nullptr;
         }
+        /**
+         * @brief metodo para agregar un vertice al grafo
+         * @param nomb nombre del nuevo vertice
+         */
         void agregaVert(string nomb){
             Vertice *nuevo=new Vertice(nomb);
             if (inicial==nullptr){
@@ -54,6 +84,12 @@ class Grafo {
                 aux->sig=nuevo;
             }
         }
+        /**
+         * @brief metodo que agrega una arista
+         * @param pes entero que representa el peso de la arista
+         * @param nomb1 nombre del vertice del que sale la arista
+         * @param nomb2 nombre del vertice al que apunta la arista
+         */
         void agregarArista(int pes,string nomb1,string nomb2){
             Vertice *aux1=getVertice(nomb1);
             Vertice *aux2=getVertice(nomb2);
@@ -66,6 +102,10 @@ class Grafo {
             }
 
         }
+        /**
+         * @brief metodo que recorre el grafo y lo pasa a una matriz para poder realizar el floyd warshall
+         * @return string con el resultado del floyd warshall
+         */
         string genmatriz(){
             int largo;//cantidad de nodos en el grafo
             largo=lengrafo();
@@ -146,6 +186,11 @@ class Grafo {
             return salida;
 
         }
+
+    /**
+     * @brief Metodo para probar el grafo en el cual ademas de hacer el floyd Warshall se impmrime el grafo antes y
+     * despues de realizar dicho metodo para poder ver el cambio en el grafo
+     */
     void prueba_matriz(){
         int largo;//cantidad de nodos en el grafo
         largo=lengrafo();

@@ -11,6 +11,10 @@ class Server {
 
 public:
     Grafo *graf=new Grafo();
+    /**
+     * @brief metodo que crea un grafo para poder hacer el floyd warshall
+     * @return string para representar la matriz
+     */
     string prueba(){
         graf->agregaVert("a");
         graf->agregaVert("b");
