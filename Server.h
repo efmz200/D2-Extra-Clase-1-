@@ -5,7 +5,6 @@
 #ifndef EXTRACLASE_1_SERVER_H
 #define EXTRACLASE_1_SERVER_H
 #include "Grafo.h"
-#include "Server.cpp"
 #include <string>
 class Server {
 
