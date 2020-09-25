@@ -4,9 +4,10 @@
 
 #ifndef EXTRACLASE_1_SERVER_H
 #define EXTRACLASE_1_SERVER_H
-
+#include "Grafo.h"
 
 class Server {
+    Grafo *graf=new Grafo();
 
 };
 

@@ -57,11 +57,14 @@ class Grafo {
         void agregarArista(int pes,string nomb1,string nomb2){
             Vertice *aux1=getVertice(nomb1);
             Vertice *aux2=getVertice(nomb2);
-            Arista *art= new Arista();
-            art->referencia=aux2;
-            art->sig=nullptr;
-            art->peso=pes;
-            aux1->agregarArist(art);
+            if(aux1!= nullptr && aux2!= nullptr){
+                Arista *art= new Arista();
+                art->referencia=aux2;
+                art->sig=nullptr;
+                art->peso=pes;
+                aux1->agregarArist(art);
+            }
+
         }
         void genmatriz(){
             int largo;//cantidad de nodos en el grafo
@@ -76,7 +79,7 @@ class Grafo {
                 arr[0][i]=aux->nom;
                 aux=aux->sig;
             }
-            //Este for llena de infinitos la matriz
+            //for encargado de llenar de infinitos la matriz
             for (int i=1;i<largo;i++){
 
                 for (int a=1;a<largo;a++){
@@ -89,6 +92,8 @@ class Grafo {
                 }
             }
             aux=inicial;
+
+            //Bloque de codigo para poder asignar los pesos de las aristas en la matriz
             for (int i=1;i<largo;i++){
                 Arista *auxArt=aux->arist;
 
@@ -131,13 +136,6 @@ class Grafo {
                     for (int j=1;j<largo;j++){
 
                         if(stoi(arr[i][a])+stoi(arr[a][j])<stoi(arr[i][j])){
-                            cout<<"K "<<a<<std::endl;
-                            cout<<"i "<<i<<std::endl;
-                            cout<<"j "<<j <<std::endl;
-                            cout<<"valor 1 "<<arr [i][a]<< "  valor 2  "<< arr [a][j]<<std::endl;
-                            //cout<< stoi(arr[i][a])+stoi(arr[a][i])<<"suma "<<std::endl;
-                            //cout<<stoi(arr[i][j])<<"valor "<<std::endl;
-
                             int suma=stoi(arr[i][a])+stoi(arr[a][j]);
                             arr[i][j]=to_string(suma);
                         }
@@ -156,7 +154,6 @@ class Grafo {
                 }
             }
         }
-
     };
 
 #endif //EXTRACLASE_1_GRAFO_H
