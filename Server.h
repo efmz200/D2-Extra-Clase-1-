@@ -5,9 +5,25 @@
 #ifndef EXTRACLASE_1_SERVER_H
 #define EXTRACLASE_1_SERVER_H
 #include "Grafo.h"
-
+#include "Server.cpp"
+#include <string>
 class Server {
+
+
+public:
     Grafo *graf=new Grafo();
+    string prueba(){
+        graf->agregaVert("a");
+        graf->agregaVert("b");
+        graf->agregaVert("c");
+        graf->agregaVert("d");
+        graf->agregarArista(5,"a","b");
+        graf->agregarArista(3,"a","c");
+        graf->agregarArista(3,"b","c");
+        graf->agregarArista(1,"c","d");
+        string msg=graf->genmatriz();
+        return msg;
+    }
 
 };
 
