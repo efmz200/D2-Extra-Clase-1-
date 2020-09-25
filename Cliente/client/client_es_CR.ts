@@ -18,5 +18,10 @@
         <source>Añadir Arista</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="widget.ui" line="52"/>
+        <source>Mostrar grafo</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

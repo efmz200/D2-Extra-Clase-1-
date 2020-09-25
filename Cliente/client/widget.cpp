@@ -23,10 +23,15 @@ void Widget::on_VertBut_clicked()
 {
     qDebug()<<"me estriparon we";
 
-    QMessageBox::information(this,"Mensaje",QString::fromStdString(cliente_serv()));
+
 }
 
 void Widget::on_AristaBut_clicked()
 {
 
+}
+
+void Widget::on_pushButton_clicked()
+{
+    QMessageBox::information(this,"Floyd Warshall",QString::fromStdString(cliente_serv()));
 }

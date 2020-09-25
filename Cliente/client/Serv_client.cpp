@@ -37,7 +37,7 @@ string cliente_serv()
         return "-1";
     }
     send(sock , hello , strlen(hello) , 0 );
-    printf("Hello message sent\n");
+    printf("Petition sent\n");
     valread = read( sock , buffer, 1024);
     printf("%s\n",buffer );
     return string(buffer);

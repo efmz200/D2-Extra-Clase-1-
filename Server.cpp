@@ -14,7 +14,7 @@
 
 #define PORT 8080
 using namespace std;
-void server(string mensaje){
+void serv(string mensaje){
 
 
     int server_fd, new_socket, valread;
