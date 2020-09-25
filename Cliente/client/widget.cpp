@@ -21,17 +21,17 @@ Widget::~Widget()
 
 void Widget::on_VertBut_clicked()
 {
-    qDebug()<<"me estriparon we";
+    QMessageBox::information(this,"Error","Función no disponible");
 
 
 }
 
 void Widget::on_AristaBut_clicked()
 {
-
+    QMessageBox::information(this,"Error","Función no disponible");
 }
 
-void Widget::on_pushButton_clicked()
+void Widget::on_GrafBut_clicked()
 {
     QMessageBox::information(this,"Floyd Warshall",QString::fromStdString(cliente_serv()));
 }

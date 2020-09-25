@@ -20,7 +20,7 @@ private slots:
 
     void on_AristaBut_clicked();
 
-    void on_pushButton_clicked();
+    void on_GrafBut_clicked();
 
 private:
     Ui::Widget *ui;
