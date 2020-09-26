@@ -178,11 +178,10 @@ class Grafo {
                     }
                     salida+=arr[i][j];
                     salida+=(" | ");
-                    //cout<<arr[i][j];
+
                 }
                 salida+="\n";
             }
-            cout<<salida;
             return salida;
 
         }
@@ -242,7 +241,7 @@ class Grafo {
             aux=aux->sig;
         }
 
-
+        cout<<"Grafo antes del Floyd Warshall"<<std::endl;
         //--------------
         //print de pueba
         //---------------

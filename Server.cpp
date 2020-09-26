@@ -1,6 +1,5 @@
 
 #include "Server.h"
-// Server side C/C++ program to demonstrate Socket programming
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/socket.h>
@@ -30,8 +29,6 @@ void serv(string mensaje){
         perror("socket failed");
         exit(EXIT_FAILURE);
     }
-
-    // Forcefully attaching socket to the port 8080
     if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
                    &opt, sizeof(opt)))
     {
@@ -61,4 +58,5 @@ void serv(string mensaje){
     printf("%s\n",buffer);
     send(new_socket , msg , strlen(msg) , 0 );
     printf("Message sent\n");
+
 }
